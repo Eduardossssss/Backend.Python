@@ -11,13 +11,7 @@ letters = ["А", "В", "Е", "К", "М", "Н", "О", "Р", "С", "Т", "У", "Х
 def check_numbers(item):
     return item[0] in letters and item[1:4].isdigit() and item[4] in letters and item[5] in letters and item[6:].isdigit() and 8<=len(item)<=9
 
-
-correct_numbers = [number for number in car_numbers if number[0] in letters
-                   and number[1:4].isdigit()
-                   and number[4] in letters
-                   and number[5] in letters
-                   and number[6:].isdigit()
-                   and 8 <= len(number) <= 9]
+correct_numbers = list(filter(check_numbers, car_numbers))
 
 print('\nИсходный список автомобильных номеров: {}'.format(car_numbers))
 print('\nАвтомобильные номера отфильтрованы согласно ГОСТу: {}'.format(correct_numbers))
